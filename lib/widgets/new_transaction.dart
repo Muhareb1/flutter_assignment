@@ -37,7 +37,7 @@ class NewTransaction extends StatelessWidget {
                 child: Text(
                   'Add Transaction',
                   style: TextStyle(
-                    color: Color.fromARGB(255, 74, 195, 159),
+                    color: Colors.black,
                   ),
                 ),
               )

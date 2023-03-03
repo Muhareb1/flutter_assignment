@@ -26,7 +26,11 @@ class MyHomePage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: const Text('The First One'),
+          backgroundColor: Color.fromARGB(255, 213, 251, 226),
+          title: const Text(
+            'The First One',
+            style: TextStyle(color: Colors.black),
+          ),
         ),
         body: SingleChildScrollView(
           child: Column(
