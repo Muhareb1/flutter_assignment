@@ -7,9 +7,16 @@ class NewTransaction extends StatelessWidget {
   NewTransaction(this.addTx);
 
   void submitData() {
+    final enteredTitle = titleController.text;
+    final enteredAmount = double.parse(amountController.text);
+
+    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+      return;
+    }
+
     addTx(
-      titleController.text,
-      double.parse(amountController.text),
+      enteredTitle,
+      enteredAmount,
     );
   }
 
@@ -27,6 +34,7 @@ class NewTransaction extends StatelessWidget {
                   labelText: 'Title',
                 ),
                 // onChanged: (value) => titleInput,
+                onSubmitted: (_) => submitData,
               ),
               TextField(
                 keyboardType: TextInputType.number,
@@ -38,7 +46,7 @@ class NewTransaction extends StatelessWidget {
                 onSubmitted: (_) => submitData,
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: submitData,
                 child: Text(
                   'Add Transaction',
                   style: TextStyle(
