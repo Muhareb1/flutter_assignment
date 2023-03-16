@@ -9,7 +9,31 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter App',
+      title: 'Personal Expenses',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.amber,
+        fontFamily: 'Quicksand',
+        appBarTheme: AppBarTheme(
+            toolbarTextStyle: ThemeData.light()
+                .textTheme
+                .copyWith(
+                  titleMedium: TextStyle(
+                    fontFamily: 'OpenSans',
+                    fontSize: 20,
+                  ),
+                )
+                .bodyMedium,
+            titleTextStyle: ThemeData.light()
+                .textTheme
+                .copyWith(
+                  titleMedium: TextStyle(
+                    fontFamily: 'OpenSans',
+                    fontSize: 20,
+                  ),
+                )
+                .titleLarge),
+      ),
       home: MyHomePage(),
     );
   }
@@ -51,10 +75,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 213, 251, 226),
         title: const Text(
-          'Expenses App',
-          style: TextStyle(color: Colors.black),
+          'Personal Expenses',
+          //style: TextStyle(color: Colors.black),
         ),
         actions: <Widget>[
           IconButton(
@@ -74,7 +97,6 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               width: double.infinity,
               child: Card(
-                color: Colors.transparent,
                 child: Text(
                   'CHART!',
                   textAlign: TextAlign.center,
@@ -88,8 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        foregroundColor: Colors.black,
-        backgroundColor: Color.fromARGB(255, 213, 251, 226),
+        // foregroundColor: Colors.black,
+        // backgroundColor: Color.fromARGB(255, 213, 251, 226),
         onPressed: () => _startAddNewTransaction(context),
         child: Icon(
           Icons.add,
